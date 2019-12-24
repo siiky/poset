@@ -5,3 +5,9 @@
 *.scm~
 *.scm#*
 .#*.scm
+*.link
+*.so
+*.o
+*.import.scm
+*.install.sh
+*.build.sh

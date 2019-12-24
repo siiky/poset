@@ -1,0 +1,21 @@
+; vim: ft=scheme
+((author "siiky")
+ (license "unlicense")
+ (synopsis "POSet things")
+ (version "0.0.0")
+ (dependencies
+   gvs
+   srfi-1
+   srfi-42
+   srfi-69
+   srfi-113
+   srfi-128
+   typed-records)
+ (component-options (csc-options "-O0" "-d3"))
+ (components
+   (extension poset
+              (modules poset)
+              (source poset.scm))
+   (program examples
+            (component-dependencies poset)
+            (source examples.scm))))
