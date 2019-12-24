@@ -41,6 +41,7 @@
 
     (only chicken.base
           cute
+          define-constant
           delay-force
           gensym
           identity
@@ -313,12 +314,15 @@
   (define (poset-nodes poset)
     (brel-nodes (brel poset) (type-comparator poset)))
 
+  (define-constant *default-graph-name* 'poset)
+  (define-constant *default-settings* '())
+
   (define (brel->gvs
             brel
             #!key
             (type-cmp default-comparator)
-            (name 'poset)
-            (settings '())
+            (name *default-graph-name*)
+            (settings *default-settings*)
             (nodes #f)
             )
     ; What kind of graph/edges to use? either digraph/-> or graph/--
@@ -335,6 +339,7 @@
            ,name
            (settings
              (graph (layout dot) (rankdir BT))
+             (node (shape plain))
              . ,settings)
            (nodes . ,nodes)
            .
@@ -343,8 +348,8 @@
   (define (gvs
             poset
             #!key
-            (name 'poset)
-            (settings '())
+            (name *default-graph-name*)
+            (settings *default-settings*)
             )
     (brel->gvs (brel poset)
                #:name name
