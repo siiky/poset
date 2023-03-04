@@ -36,4 +36,4 @@
              #:type-cmp poset:default-comparator
              #:set '(a b c d)))
 
-(gvs-write (poset:gvs poset2))
+(gvs-write (poset:gvs (poset:* poset1 poset2)))

@@ -1,12 +1,29 @@
 digraph poset
 {
 	graph [ layout=dot rankdir=BT ];
-	"d" [ shape=plain ];
-	"c" [ shape=plain ];
-	"b" [ shape=plain ];
-	"a" [ shape=plain ];
-	"c" -> "d";
-	"b" -> "d";
-	"a" -> "c";
-	"a" -> "b";
+	"(2 . d)" [ shape=plain ];
+	"(2 . c)" [ shape=plain ];
+	"(2 . b)" [ shape=plain ];
+	"(2 . a)" [ shape=plain ];
+	"(1 . c)" [ shape=plain ];
+	"(1 . b)" [ shape=plain ];
+	"(1 . a)" [ shape=plain ];
+	"(3 . d)" [ shape=plain ];
+	"(3 . c)" [ shape=plain ];
+	"(3 . b)" [ shape=plain ];
+	"(2 . c)" -> "(3 . d)";
+	"(2 . b)" -> "(3 . d)";
+	"(2 . a)" -> "(3 . d)";
+	"(2 . a)" -> "(3 . c)";
+	"(2 . a)" -> "(3 . b)";
+	"(1 . c)" -> "(2 . d)";
+	"(1 . c)" -> "(3 . d)";
+	"(1 . b)" -> "(2 . d)";
+	"(1 . b)" -> "(3 . d)";
+	"(1 . a)" -> "(2 . d)";
+	"(1 . a)" -> "(2 . c)";
+	"(1 . a)" -> "(2 . b)";
+	"(1 . a)" -> "(3 . d)";
+	"(1 . a)" -> "(3 . c)";
+	"(1 . a)" -> "(3 . b)";
 }
