@@ -1,4 +1,4 @@
-all: build examples.png
+all: build examples.png S.svg S.png
 
 build: poset.scm
 	chicken-install -n
@@ -9,8 +9,14 @@ examples: examples.scm build
 examples.gv: examples
 	./examples > examples.gv
 
-examples.png: examples.gv
-	dot -Tpng -o examples.png examples.gv
+%.gv: %.gvs
+	gvs2gv $<
+
+%.svg: %.gv
+	dot -Tsvg -o $@ $<
+
+%.png: %.gv
+	dot -Tpng -o $@ $<
 
 clean:
 	chicken-clean
